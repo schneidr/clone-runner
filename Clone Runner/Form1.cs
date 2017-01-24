@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Resources;
+using System.IO;
 
 namespace Clone_Runner
 {
@@ -23,8 +24,33 @@ namespace Clone_Runner
             InitializeComponent();
             // https://www.codeproject.com/tips/580043/how-to-make-a-multi-language-application-in-csharp
             cul = CultureInfo.CreateSpecificCulture("en");
+            locationListBox.Items.Add(@"C:\Users\geschnei\Desktop\test");
+            searchButton.Enabled = (locationListBox.Items.Count > 0);
             this.searcher = new Searcher();
-            this.searcher.ProgressChanged += Searcher_ProgressChanged;
+            this.searcher.OnProgressChanged += Searcher_ProgressChanged;
+            this.searcher.OnDupeFound += Searcher_OnDupeFound;
+        }
+
+        private void Searcher_OnDupeFound(FileInfo first, FileInfo dupe)
+        {
+            ListViewGroup g = null;
+            foreach (ListViewGroup group in resultListView.Groups)
+            {
+                if (group.Tag == first)
+                {
+                    g = group;
+                    break;
+                }
+            }
+            if (g == null)
+            {
+                g = new ListViewGroup(first.Name);
+                resultListView.Groups.Add(g);
+                ListViewItem firstItem = new ListViewItem(first.Name);
+                resultListView.Items.Add(firstItem);
+            }
+            ListViewItem dupeItem = new ListViewItem(dupe.Name);
+            resultListView.Items.Add(dupeItem);
         }
 
         private void Searcher_ProgressChanged(int current, int total)

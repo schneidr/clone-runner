@@ -11,20 +11,26 @@ namespace Clone_Runner
     class Searcher
     {
         private List<string> locations;
-        private List<string> files;
         BackgroundWorker worker;
 
         public delegate void ProgressChangedHandler(int current, int total);
-        public event ProgressChangedHandler ProgressChanged;
+        public delegate void DupeFoundHandler(FileInfo first, FileInfo dupe);
+        public event ProgressChangedHandler OnProgressChanged;
+        public event DupeFoundHandler OnDupeFound;
 
         public Searcher()
         {
-            this.files = new List<string>();
+            
         }
 
-        protected virtual void OnProgressChanged(int current, int total)
+        protected virtual void ProgressChanged(int current, int total)
         {
-            ProgressChanged?.Invoke(current, total);
+            OnProgressChanged?.Invoke(current, total);
+        }
+
+        protected virtual void DupeFound(FileInfo first, FileInfo dupe)
+        {
+            OnDupeFound?.Invoke(first, dupe);
         }
 
         public void Start(List<string> loc)
@@ -44,22 +50,46 @@ namespace Clone_Runner
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
+            List<FileInfo> files = new List<FileInfo>();
+            List<FileInfo> foundFiles = new List<FileInfo>();
             foreach (string location in this.locations)
             {
-                this.FindFiles(location);
+                this.FindFiles(location, files);
+            }
+            foreach (FileInfo info in files)
+            {
+                foreach (FileInfo compareInfo in files)
+                {
+                    if (info.FullName == compareInfo.FullName) continue;
+                    if (foundFiles.Contains(compareInfo)) continue;
+                    bool identical = false;
+                    identical |= (info.LastWriteTime == compareInfo.LastWriteTime);
+                    identical |= (info.Length == compareInfo.Length);
+                    Console.WriteLine(String.Format("{0}: {1}", info.Name, identical));
+                    if (identical)
+                    {
+                        foundFiles.Add(info);
+                        foundFiles.Add(compareInfo);
+                        DupeFound(info, compareInfo);
+                    }
+                }
             }
         }
 
-        private void FindFiles(string location)
+        private void FindFiles(string location, List<FileInfo> files)
         {
             try
             {
-                this.files.AddRange(Directory.GetFiles(location));
-                OnProgressChanged(0, this.files.Count);
+                string[] paths = Directory.GetFiles(location);
+                foreach (string path in paths)
+                {
+                    files.Add(new FileInfo(path));
+                }
+                OnProgressChanged(0, files.Count);
                 string[] directories = Directory.GetDirectories(location);
                 foreach (string dir in directories)
                 {
-                    this.FindFiles(dir);
+                    this.FindFiles(dir, files);
                 }
             }
             catch (UnauthorizedAccessException) { }
