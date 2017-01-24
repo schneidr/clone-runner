@@ -20,7 +20,7 @@ namespace Clone_Runner
 
         public Searcher()
         {
-            
+
         }
 
         protected virtual void ProgressChanged(int current, int total)
@@ -40,12 +40,14 @@ namespace Clone_Runner
             worker.WorkerReportsProgress = true;
             worker.WorkerSupportsCancellation = true;
             worker.DoWork += Worker_DoWork;
+            worker.ProgressChanged += Worker_ProgressChanged;
             worker.RunWorkerAsync();
         }
 
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            // throw new NotImplementedException();
+            DupeFoundEventArgs args = (DupeFoundEventArgs)e.UserState;
+            DupeFound(args.First, args.Dupe);
         }
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
@@ -56,6 +58,7 @@ namespace Clone_Runner
             {
                 this.FindFiles(location, files);
             }
+            int count = 0;
             foreach (FileInfo info in files)
             {
                 foreach (FileInfo compareInfo in files)
@@ -70,9 +73,12 @@ namespace Clone_Runner
                     {
                         foundFiles.Add(info);
                         foundFiles.Add(compareInfo);
-                        DupeFound(info, compareInfo);
+                        //DupeFound(info, compareInfo);
+                        worker.ReportProgress(count, new DupeFoundEventArgs(info, compareInfo));
                     }
                 }
+                count++;
+                ProgressChanged(count, files.Count);
             }
         }
 
@@ -85,7 +91,7 @@ namespace Clone_Runner
                 {
                     files.Add(new FileInfo(path));
                 }
-                OnProgressChanged(0, files.Count);
+                ProgressChanged(0, files.Count);
                 string[] directories = Directory.GetDirectories(location);
                 foreach (string dir in directories)
                 {
@@ -93,6 +99,19 @@ namespace Clone_Runner
                 }
             }
             catch (UnauthorizedAccessException) { }
+        }
+
+    }
+
+    public class DupeFoundEventArgs : EventArgs
+    {
+        public FileInfo First { get; set; }
+        public FileInfo Dupe { get; set; }
+
+        public DupeFoundEventArgs(FileInfo first, FileInfo dupe)
+        {
+            this.First = first;
+            this.Dupe = dupe;
         }
     }
 }

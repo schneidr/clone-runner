@@ -29,45 +29,50 @@
         private void InitializeComponent()
         {
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.progressProgressBar = new System.Windows.Forms.ToolStripProgressBar();
+            this.progressStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.largeIconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.smallIconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.locationListBox = new System.Windows.Forms.ListBox();
-            this.locationAddButton = new System.Windows.Forms.Button();
-            this.locationRemoveButton = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.searchButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
-            this.progressProgressBar = new System.Windows.Forms.ToolStripProgressBar();
-            this.progressStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.searchButton = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.locationRemoveButton = new System.Windows.Forms.Button();
+            this.locationAddButton = new System.Windows.Forms.Button();
+            this.locationListBox = new System.Windows.Forms.ListBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.resultListView = new System.Windows.Forms.ListView();
-            this.largeIconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.smallIconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.detailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.columnHeaderFilename = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderModificationDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderSize = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderChecksum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderPath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -80,6 +85,16 @@
             this.statusStrip1.Size = new System.Drawing.Size(732, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // progressProgressBar
+            // 
+            this.progressProgressBar.Name = "progressProgressBar";
+            this.progressProgressBar.Size = new System.Drawing.Size(200, 16);
+            // 
+            // progressStatusLabel
+            // 
+            this.progressStatusLabel.Name = "progressStatusLabel";
+            this.progressStatusLabel.Size = new System.Drawing.Size(0, 17);
             // 
             // menuStrip1
             // 
@@ -105,18 +120,18 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.settingsToolStripMenuItem.Text = "Settings...";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(122, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -131,6 +146,43 @@
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
+            // 
+            // largeIconsToolStripMenuItem
+            // 
+            this.largeIconsToolStripMenuItem.Name = "largeIconsToolStripMenuItem";
+            this.largeIconsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.largeIconsToolStripMenuItem.Text = "Large Icons";
+            this.largeIconsToolStripMenuItem.Click += new System.EventHandler(this.largeIconsToolStripMenuItem_Click);
+            // 
+            // smallIconsToolStripMenuItem
+            // 
+            this.smallIconsToolStripMenuItem.Name = "smallIconsToolStripMenuItem";
+            this.smallIconsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.smallIconsToolStripMenuItem.Text = "Small Icons";
+            this.smallIconsToolStripMenuItem.Click += new System.EventHandler(this.smallIconsToolStripMenuItem_Click);
+            // 
+            // listToolStripMenuItem
+            // 
+            this.listToolStripMenuItem.Name = "listToolStripMenuItem";
+            this.listToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listToolStripMenuItem.Text = "List";
+            this.listToolStripMenuItem.Click += new System.EventHandler(this.listToolStripMenuItem_Click);
+            // 
+            // tilesToolStripMenuItem
+            // 
+            this.tilesToolStripMenuItem.Checked = true;
+            this.tilesToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tilesToolStripMenuItem.Name = "tilesToolStripMenuItem";
+            this.tilesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tilesToolStripMenuItem.Text = "Tiles";
+            this.tilesToolStripMenuItem.Click += new System.EventHandler(this.tilesToolStripMenuItem_Click);
+            // 
+            // detailsToolStripMenuItem
+            // 
+            this.detailsToolStripMenuItem.Name = "detailsToolStripMenuItem";
+            this.detailsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.detailsToolStripMenuItem.Text = "Details";
+            this.detailsToolStripMenuItem.Click += new System.EventHandler(this.detailsToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -157,58 +209,64 @@
             this.tabPage1.Text = "Search Parameters";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // groupBox3
             // 
-            this.tabPage2.Controls.Add(this.resultListView);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(819, 512);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Result";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.groupBox3.Controls.Add(this.checkBox3);
+            this.groupBox3.Controls.Add(this.checkBox2);
+            this.groupBox3.Controls.Add(this.checkBox1);
+            this.groupBox3.Location = new System.Drawing.Point(8, 214);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(349, 90);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Compare";
             // 
-            // groupBox1
+            // checkBox3
             // 
-            this.groupBox1.Controls.Add(this.locationRemoveButton);
-            this.groupBox1.Controls.Add(this.locationAddButton);
-            this.groupBox1.Controls.Add(this.locationListBox);
-            this.groupBox1.Location = new System.Drawing.Point(8, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(349, 202);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Location";
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Enabled = false;
+            this.checkBox3.Location = new System.Drawing.Point(6, 65);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(76, 17);
+            this.checkBox3.TabIndex = 2;
+            this.checkBox3.Text = "Checksum";
+            this.checkBox3.UseVisualStyleBackColor = true;
             // 
-            // locationListBox
+            // checkBox2
             // 
-            this.locationListBox.FormattingEnabled = true;
-            this.locationListBox.Location = new System.Drawing.Point(3, 16);
-            this.locationListBox.Name = "locationListBox";
-            this.locationListBox.Size = new System.Drawing.Size(340, 147);
-            this.locationListBox.TabIndex = 0;
-            this.locationListBox.SelectedIndexChanged += new System.EventHandler(this.locationListBox_SelectedIndexChanged);
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.Location = new System.Drawing.Point(6, 42);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(49, 17);
+            this.checkBox2.TabIndex = 1;
+            this.checkBox2.Text = "Date";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // locationAddButton
+            // checkBox1
             // 
-            this.locationAddButton.Location = new System.Drawing.Point(187, 173);
-            this.locationAddButton.Name = "locationAddButton";
-            this.locationAddButton.Size = new System.Drawing.Size(75, 23);
-            this.locationAddButton.TabIndex = 1;
-            this.locationAddButton.Text = "Add...";
-            this.locationAddButton.UseVisualStyleBackColor = true;
-            this.locationAddButton.Click += new System.EventHandler(this.locationAddButton_Click);
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(6, 19);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(46, 17);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "Size";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // locationRemoveButton
+            // searchButton
             // 
-            this.locationRemoveButton.Enabled = false;
-            this.locationRemoveButton.Location = new System.Drawing.Point(268, 173);
-            this.locationRemoveButton.Name = "locationRemoveButton";
-            this.locationRemoveButton.Size = new System.Drawing.Size(75, 23);
-            this.locationRemoveButton.TabIndex = 2;
-            this.locationRemoveButton.Text = "Remove";
-            this.locationRemoveButton.UseVisualStyleBackColor = true;
-            this.locationRemoveButton.Click += new System.EventHandler(this.locationRemoveButton_Click);
+            this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchButton.Enabled = false;
+            this.searchButton.Location = new System.Drawing.Point(637, 323);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.TabIndex = 2;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // groupBox2
             // 
@@ -248,116 +306,95 @@
             this.listBox2.Size = new System.Drawing.Size(340, 147);
             this.listBox2.TabIndex = 0;
             // 
-            // progressProgressBar
+            // groupBox1
             // 
-            this.progressProgressBar.Name = "progressProgressBar";
-            this.progressProgressBar.Size = new System.Drawing.Size(200, 16);
+            this.groupBox1.Controls.Add(this.locationRemoveButton);
+            this.groupBox1.Controls.Add(this.locationAddButton);
+            this.groupBox1.Controls.Add(this.locationListBox);
+            this.groupBox1.Location = new System.Drawing.Point(8, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(349, 202);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Location";
             // 
-            // progressStatusLabel
+            // locationRemoveButton
             // 
-            this.progressStatusLabel.Name = "progressStatusLabel";
-            this.progressStatusLabel.Size = new System.Drawing.Size(0, 17);
+            this.locationRemoveButton.Enabled = false;
+            this.locationRemoveButton.Location = new System.Drawing.Point(268, 173);
+            this.locationRemoveButton.Name = "locationRemoveButton";
+            this.locationRemoveButton.Size = new System.Drawing.Size(75, 23);
+            this.locationRemoveButton.TabIndex = 2;
+            this.locationRemoveButton.Text = "Remove";
+            this.locationRemoveButton.UseVisualStyleBackColor = true;
+            this.locationRemoveButton.Click += new System.EventHandler(this.locationRemoveButton_Click);
             // 
-            // searchButton
+            // locationAddButton
             // 
-            this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchButton.Enabled = false;
-            this.searchButton.Location = new System.Drawing.Point(637, 323);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(75, 23);
-            this.searchButton.TabIndex = 2;
-            this.searchButton.Text = "Search";
-            this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            this.locationAddButton.Location = new System.Drawing.Point(187, 173);
+            this.locationAddButton.Name = "locationAddButton";
+            this.locationAddButton.Size = new System.Drawing.Size(75, 23);
+            this.locationAddButton.TabIndex = 1;
+            this.locationAddButton.Text = "Add...";
+            this.locationAddButton.UseVisualStyleBackColor = true;
+            this.locationAddButton.Click += new System.EventHandler(this.locationAddButton_Click);
             // 
-            // groupBox3
+            // locationListBox
             // 
-            this.groupBox3.Controls.Add(this.checkBox3);
-            this.groupBox3.Controls.Add(this.checkBox2);
-            this.groupBox3.Controls.Add(this.checkBox1);
-            this.groupBox3.Location = new System.Drawing.Point(8, 214);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(349, 90);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Compare";
+            this.locationListBox.FormattingEnabled = true;
+            this.locationListBox.Location = new System.Drawing.Point(3, 16);
+            this.locationListBox.Name = "locationListBox";
+            this.locationListBox.Size = new System.Drawing.Size(340, 147);
+            this.locationListBox.TabIndex = 0;
+            this.locationListBox.SelectedIndexChanged += new System.EventHandler(this.locationListBox_SelectedIndexChanged);
             // 
-            // checkBox1
+            // tabPage2
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(6, 19);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(46, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Size";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(6, 42);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(49, 17);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Date";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Enabled = false;
-            this.checkBox3.Location = new System.Drawing.Point(6, 65);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(76, 17);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "Checksum";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.tabPage2.Controls.Add(this.resultListView);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(724, 352);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Result";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // resultListView
             // 
+            this.resultListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderFilename,
+            this.columnHeaderModificationDate,
+            this.columnHeaderSize,
+            this.columnHeaderChecksum,
+            this.columnHeaderPath});
             this.resultListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resultListView.Location = new System.Drawing.Point(3, 3);
             this.resultListView.Name = "resultListView";
-            this.resultListView.Size = new System.Drawing.Size(813, 506);
+            this.resultListView.Size = new System.Drawing.Size(718, 346);
             this.resultListView.TabIndex = 0;
+            this.resultListView.TileSize = new System.Drawing.Size(200, 60);
             this.resultListView.UseCompatibleStateImageBehavior = false;
             this.resultListView.View = System.Windows.Forms.View.Tile;
             // 
-            // largeIconsToolStripMenuItem
+            // columnHeaderFilename
             // 
-            this.largeIconsToolStripMenuItem.Name = "largeIconsToolStripMenuItem";
-            this.largeIconsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.largeIconsToolStripMenuItem.Text = "Large Icons";
+            this.columnHeaderFilename.Text = "Filename";
             // 
-            // smallIconsToolStripMenuItem
+            // columnHeaderModificationDate
             // 
-            this.smallIconsToolStripMenuItem.Name = "smallIconsToolStripMenuItem";
-            this.smallIconsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.smallIconsToolStripMenuItem.Text = "Small Icons";
+            this.columnHeaderModificationDate.Text = "Modification date";
             // 
-            // listToolStripMenuItem
+            // columnHeaderSize
             // 
-            this.listToolStripMenuItem.Name = "listToolStripMenuItem";
-            this.listToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.listToolStripMenuItem.Text = "List";
+            this.columnHeaderSize.Text = "Size";
             // 
-            // detailsToolStripMenuItem
+            // columnHeaderChecksum
             // 
-            this.detailsToolStripMenuItem.Name = "detailsToolStripMenuItem";
-            this.detailsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.detailsToolStripMenuItem.Text = "Details";
+            this.columnHeaderChecksum.Text = "Checksum";
             // 
-            // tilesToolStripMenuItem
+            // columnHeaderPath
             // 
-            this.tilesToolStripMenuItem.Checked = true;
-            this.tilesToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tilesToolStripMenuItem.Name = "tilesToolStripMenuItem";
-            this.tilesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.tilesToolStripMenuItem.Text = "Tiles";
+            this.columnHeaderPath.Text = "Path";
             // 
             // Form1
             // 
@@ -376,11 +413,11 @@
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,6 +457,11 @@
         private System.Windows.Forms.ToolStripMenuItem listToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tilesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem detailsToolStripMenuItem;
+        private System.Windows.Forms.ColumnHeader columnHeaderFilename;
+        private System.Windows.Forms.ColumnHeader columnHeaderModificationDate;
+        private System.Windows.Forms.ColumnHeader columnHeaderSize;
+        private System.Windows.Forms.ColumnHeader columnHeaderChecksum;
+        private System.Windows.Forms.ColumnHeader columnHeaderPath;
     }
 }
 
